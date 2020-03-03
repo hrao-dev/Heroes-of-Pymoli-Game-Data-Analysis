@@ -12,8 +12,8 @@ total_players = purchase_data["SN"].unique()
 player_count = pd.DataFrame({
     'Total Players': [len(total_players)]
     })
-#print(player_count)
-display(player_count)
+print(player_count)
+#display(player_count)
 
 #Purchasing Analysis (Total)
 #Run basic calculations to obtain number of unique items, average price, etc.
@@ -34,8 +34,8 @@ purchase_an_total = pd.DataFrame({
 })
 purchase_an_total['Average Price'] = purchase_an_total['Average Price'].map("${:.2f}".format)
 purchase_an_total['Total Revenue'] = purchase_an_total['Total Revenue'].map("${:,.2f}".format)
-#print(purchase_an_total)
-display(purchase_an_total)
+print(purchase_an_total)
+#display(purchase_an_total)
 
 #Gender Demographics
 #Percentage and Count of Male Players
@@ -49,8 +49,8 @@ gender_demo.rename(columns = {'count':'Total Count'}, inplace = True)
 gender_demo['Percentage of Players'] =  gender_demo['Total Count'] / gender_demo['Total Count'].sum()
 gender_demo['Percentage of Players'] = gender_demo['Percentage of Players'].map("{:.2%}".format)
 gender_demo = gender_demo.set_index('Gender')
-#print(gender_demo)
-display(gender_demo)
+print(gender_demo)
+#display(gender_demo)
 
 #Purchasing Analysis (Gender)
 #Run basic calculations to obtain purchase count, avg. purchase price, avg. purchase total per person etc. by gender
@@ -74,8 +74,8 @@ gender_purchase['Average Purchase Price'] = gender_purchase['Average Purchase Pr
 gender_purchase['Total Purchase Value'] = gender_purchase['Total Purchase Value'].map("${:,.2f}".format)
 gender_purchase['Avg Total Purchase per Person'] = gender_purchase['Avg Total Purchase per Person'].map("${:.2f}".format)
 gender_purchase = gender_purchase.set_index('Gender')
-#print(gender_purchase)
-display(gender_purchase)
+print(gender_purchase)
+#display(gender_purchase)
 
 #Age Demographics
 #Establish bins for ages
@@ -94,8 +94,8 @@ age_demo.rename(columns = {'count':'Total Count'}, inplace = True)
 age_demo['Percentage of Players'] =  age_demo['Total Count'] / age_demo['Total Count'].sum()
 age_demo['Percentage of Players'] = age_demo['Percentage of Players'].map("{:.2%}".format)
 age_demo = age_demo.set_index('Age_Ranges')
-#print(age_demo)
-display(age_demo)
+print(age_demo)
+#display(age_demo)
 
 #Purchasing Analysis (Age)
 #Bin the purchase_data data frame by age
@@ -120,8 +120,8 @@ age_purchase['Average Purchase Price'] = age_purchase['Average Purchase Price'].
 age_purchase['Total Purchase Value'] = age_purchase['Total Purchase Value'].map("${:,.2f}".format)
 age_purchase['Average Total Purchase per Person'] = age_purchase['Average Total Purchase per Person'].map("${:.2f}".format)
 age_purchase = age_purchase.set_index('Age_Ranges')
-#print(age_purchase)
-display(age_purchase)
+print(age_purchase)
+#display(age_purchase)
 
 #Top Spenders
 #Run basic calculations to obtain the results in the table below
@@ -143,8 +143,8 @@ spend_purchase_an = spend_purchase.nlargest(5, 'Total Purchase Value', keep='fir
 spend_purchase_an['Average Purchase Price'] = spend_purchase_an['Average Purchase Price'].map("${:.2f}".format)
 spend_purchase_an['Total Purchase Value'] = spend_purchase_an['Total Purchase Value'].map("${:.2f}".format)
 spend_purchase_an = spend_purchase_an.set_index('SN')
-#print(spend_purchase_an)
-display(spend_purchase_an)
+print(spend_purchase_an)
+#display(spend_purchase_an)
 
 #Most Popular Items
 #Retrieve the Item ID, Item Name, and Item Price columns
@@ -167,8 +167,8 @@ pop_item_an = pop_item.nlargest(5, 'Purchase Count', keep='first')
 pop_item_an['Total Purchase Value'] = pop_item_an['Total Purchase Value'].map("${:.2f}".format)
 pop_item_an['Item Price'] = pop_item_an['Item Price'].map("${:.2f}".format)
 pop_item_an = pop_item_an.set_index(['Item ID', 'Item Name'])
-#print(pop_item_an)
-display(pop_item_an)
+print(pop_item_an)
+#display(pop_item_an)
 
 #Most Profitable Items
 #Sort the above table by total purchase value in descending order
@@ -179,5 +179,5 @@ pro_item_an = pop_item.nlargest(5, 'Total Purchase Value', keep='first')
 pro_item_an['Total Purchase Value'] = pro_item_an['Total Purchase Value'].map("${:.2f}".format)
 pro_item_an['Item Price'] = pro_item_an['Item Price'].map("${:.2f}".format)
 pro_item_an = pro_item_an.set_index(['Item ID', 'Item Name'])
-#print(pro_item_an)
-display(pro_item_an)
+print(pro_item_an)
+#display(pro_item_an)
